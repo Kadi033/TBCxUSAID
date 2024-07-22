@@ -49,3 +49,41 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+// Ensure the document is fully loaded
+document.addEventListener('DOMContentLoaded', () => {
+  const prevButton = document.querySelector('.main-slider-prev');
+  const nextButton = document.querySelector('.main-slider-next');
+  const slider = document.querySelector('.second-container'); // Target the slider container
+  const sliderWidth = slider.scrollWidth;
+  const containerWidth = slider.clientWidth;
+  let scrollPosition = 0;
+
+  // Move the slider to the left
+  function moveLeft() {
+    scrollPosition -= containerWidth;
+    if (scrollPosition < 0) {
+      scrollPosition = 0;
+    }
+    slider.scrollTo({
+      left: scrollPosition,
+      behavior: 'smooth'
+    });
+  }
+
+  // Move the slider to the right
+  function moveRight() {
+    scrollPosition += containerWidth;
+    if (scrollPosition > (sliderWidth - containerWidth)) {
+      scrollPosition = sliderWidth - containerWidth;
+    }
+    slider.scrollTo({
+      left: scrollPosition,
+      behavior: 'smooth'
+    });
+  }
+
+  // Attach event listeners to the buttons
+  prevButton.addEventListener('click', moveLeft);
+  nextButton.addEventListener('click', moveRight);
+});
