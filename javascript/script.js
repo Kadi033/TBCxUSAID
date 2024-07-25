@@ -72,36 +72,36 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  const prevButton = document.querySelector(".main-slider-prev");
-  const nextButton = document.querySelector(".main-slider-next");
-  const slider = document.querySelector(".second-container");
+  // const prevButton = document.querySelector(".main-slider-prev");
+  // const nextButton = document.querySelector(".main-slider-next");
+  // const slider = document.querySelector(".second-container");
 
-  if (prevButton && nextButton && slider) {
-    const containerWidth = slider.clientWidth;
-    let scrollPosition = 0;
+  // if (prevButton && nextButton && slider) {
+  //   const containerWidth = slider.clientWidth;
+  //   let scrollPosition = 0;
 
-    const moveLeft = () => {
-      scrollPosition -= containerWidth;
-      if (scrollPosition < 0) scrollPosition = 0;
-      slider.scrollTo({
-        left: scrollPosition,
-        behavior: "smooth",
-      });
-    };
+  //   const moveLeft = () => {
+  //     scrollPosition -= containerWidth;
+  //     if (scrollPosition < 0) scrollPosition = 0;
+  //     slider.scrollTo({
+  //       left: scrollPosition,
+  //       behavior: "smooth",
+  //     });
+  //   };
 
-    const moveRight = () => {
-      scrollPosition += containerWidth;
-      if (scrollPosition > slider.scrollWidth - containerWidth)
-        scrollPosition = slider.scrollWidth - containerWidth;
-      slider.scrollTo({
-        left: scrollPosition,
-        behavior: "smooth",
-      });
-    };
+  //   const moveRight = () => {
+  //     scrollPosition += containerWidth;
+  //     if (scrollPosition > slider.scrollWidth - containerWidth)
+  //       scrollPosition = slider.scrollWidth - containerWidth;
+  //     slider.scrollTo({
+  //       left: scrollPosition,
+  //       behavior: "smooth",
+  //     });
+  //   };
 
-    prevButton.addEventListener("click", moveLeft);
-    nextButton.addEventListener("click", moveRight);
-  }
+  //   prevButton.addEventListener("click", moveLeft);
+  //   nextButton.addEventListener("click", moveRight);
+  // }
 
   const menuItems = document.querySelectorAll(".products-menu");
   const dropdownLists = document.querySelectorAll(".header_dropdown-list");
@@ -185,5 +185,78 @@ document.addEventListener("DOMContentLoaded", () => {
         underScale.classList.add("active");
       }
     });
+  });
+});
+document.addEventListener("DOMContentLoaded", () => {
+  const slider = document.querySelector(".slider");
+  const sliderInner = document.querySelector(".slider-inner");
+  const progressBar = document.querySelector(".progress-bar");
+  const slides = document.querySelectorAll(".slide-img");
+  const totalSlides = slides.length;
+  const slideWidth = slides[0].clientWidth; 
+  const maxTranslateX = -820; 
+
+  let currentIndex = 0;
+  let isPressDown = false;
+  let cursorXSpace;
+
+  function moveToIndex(index) {
+    currentIndex = Math.max(0, Math.min(index, totalSlides - 1)); 
+    const newLeft = -currentIndex * slideWidth;
+    sliderInner.style.transition = "transform 0.5s ease";
+    sliderInner.style.transform = `translateX(${Math.max(
+      newLeft,
+      maxTranslateX
+    )}px)`; 
+    const percentage = (currentIndex / (totalSlides - 1)) * 100;
+    progressBar.style.width = `${percentage}%`;
+  }
+
+  slider.addEventListener("mousedown", (e) => {
+    isPressDown = true;
+    cursorXSpace = e.clientX - sliderInner.getBoundingClientRect().left;
+    slider.style.cursor = "grabbing"; 
+  });
+
+  window.addEventListener("mouseup", () => {
+    isPressDown = false;
+    slider.style.cursor = "grab"; 
+  });
+
+  slider.addEventListener("mousemove", (e) => {
+    if (!isPressDown) return;
+    e.preventDefault();
+    let newLeft =
+      e.clientX - cursorXSpace - slider.getBoundingClientRect().left;
+
+    const minLeft = slider.clientWidth - sliderInner.scrollWidth;
+    newLeft = Math.max(newLeft, minLeft);
+    newLeft = Math.min(newLeft, 0);
+
+    sliderInner.style.transition = "none"; 
+    sliderInner.style.transform = `translateX(${Math.max(
+      newLeft,
+      maxTranslateX
+    )}px)`;
+
+    const scrollWidth = sliderInner.scrollWidth;
+    const percentage =
+      (Math.abs(newLeft) / (scrollWidth - slider.clientWidth)) * 100;
+    progressBar.style.width = `${percentage}%`;
+  });
+
+  const prevArrow = document.querySelector(".main-slider-prev");
+  const nextArrow = document.querySelector(".main-slider-next");
+
+  prevArrow.addEventListener("click", () => {
+    if (currentIndex > 0) {
+      moveToIndex(currentIndex - 1);
+    }
+  });
+
+  nextArrow.addEventListener("click", () => {
+    if (currentIndex < totalSlides - 1) {
+      moveToIndex(currentIndex + 1);
+    }
   });
 });
