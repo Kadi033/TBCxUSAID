@@ -72,37 +72,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // const prevButton = document.querySelector(".main-slider-prev");
-  // const nextButton = document.querySelector(".main-slider-next");
-  // const slider = document.querySelector(".second-container");
-
-  // if (prevButton && nextButton && slider) {
-  //   const containerWidth = slider.clientWidth;
-  //   let scrollPosition = 0;
-
-  //   const moveLeft = () => {
-  //     scrollPosition -= containerWidth;
-  //     if (scrollPosition < 0) scrollPosition = 0;
-  //     slider.scrollTo({
-  //       left: scrollPosition,
-  //       behavior: "smooth",
-  //     });
-  //   };
-
-  //   const moveRight = () => {
-  //     scrollPosition += containerWidth;
-  //     if (scrollPosition > slider.scrollWidth - containerWidth)
-  //       scrollPosition = slider.scrollWidth - containerWidth;
-  //     slider.scrollTo({
-  //       left: scrollPosition,
-  //       behavior: "smooth",
-  //     });
-  //   };
-
-  //   prevButton.addEventListener("click", moveLeft);
-  //   nextButton.addEventListener("click", moveRight);
-  // }
-
   const menuItems = document.querySelectorAll(".products-menu");
   const dropdownLists = document.querySelectorAll(".header_dropdown-list");
   const headerDropPadding = document.querySelector(".header-drop-padding");
@@ -193,21 +162,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const progressBar = document.querySelector(".progress-bar");
   const slides = document.querySelectorAll(".slide-img");
   const totalSlides = slides.length;
-  const slideWidth = slides[0].clientWidth; 
-  const maxTranslateX = -820; 
+  const slideWidth = slides[0].clientWidth;
+  const maxTranslateX = -820;
 
   let currentIndex = 0;
   let isPressDown = false;
   let cursorXSpace;
 
   function moveToIndex(index) {
-    currentIndex = Math.max(0, Math.min(index, totalSlides - 1)); 
+    currentIndex = Math.max(0, Math.min(index, totalSlides - 1));
     const newLeft = -currentIndex * slideWidth;
     sliderInner.style.transition = "transform 0.5s ease";
     sliderInner.style.transform = `translateX(${Math.max(
       newLeft,
       maxTranslateX
-    )}px)`; 
+    )}px)`;
     const percentage = (currentIndex / (totalSlides - 1)) * 100;
     progressBar.style.width = `${percentage}%`;
   }
@@ -215,12 +184,12 @@ document.addEventListener("DOMContentLoaded", () => {
   slider.addEventListener("mousedown", (e) => {
     isPressDown = true;
     cursorXSpace = e.clientX - sliderInner.getBoundingClientRect().left;
-    slider.style.cursor = "grabbing"; 
+    slider.style.cursor = "grabbing";
   });
 
   window.addEventListener("mouseup", () => {
     isPressDown = false;
-    slider.style.cursor = "grab"; 
+    slider.style.cursor = "grab";
   });
 
   slider.addEventListener("mousemove", (e) => {
@@ -233,7 +202,7 @@ document.addEventListener("DOMContentLoaded", () => {
     newLeft = Math.max(newLeft, minLeft);
     newLeft = Math.min(newLeft, 0);
 
-    sliderInner.style.transition = "none"; 
+    sliderInner.style.transition = "none";
     sliderInner.style.transform = `translateX(${Math.max(
       newLeft,
       maxTranslateX
@@ -261,29 +230,27 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-
-
 document.addEventListener("DOMContentLoaded", () => {
   const slider = document.querySelector(".slider2");
   const sliderInner = document.querySelector(".slider-inner2");
   const progressBar = document.querySelector(".progress-bar2");
   const slides = document.querySelectorAll(".slide-img2");
   const totalSlides = slides.length;
-  const slideWidth = slides[0].clientWidth; 
-  const maxTranslateX = -820; 
+  const slideWidth = slides[0].clientWidth;
+  const maxTranslateX = -820;
 
   let currentIndex = 0;
   let isPressDown = false;
   let cursorXSpace;
 
   function moveToIndex(index) {
-    currentIndex = Math.max(0, Math.min(index, totalSlides - 1)); 
+    currentIndex = Math.max(0, Math.min(index, totalSlides - 1));
     const newLeft = -currentIndex * slideWidth;
     sliderInner.style.transition = "transform 0.5s ease";
     sliderInner.style.transform = `translateX(${Math.max(
       newLeft,
       maxTranslateX
-    )}px)`; 
+    )}px)`;
     const percentage = (currentIndex / (totalSlides - 1)) * 100;
     progressBar.style.width = `${percentage}%`;
   }
@@ -291,12 +258,12 @@ document.addEventListener("DOMContentLoaded", () => {
   slider.addEventListener("mousedown", (e) => {
     isPressDown = true;
     cursorXSpace = e.clientX - sliderInner.getBoundingClientRect().left;
-    slider.style.cursor = "grabbing"; 
+    slider.style.cursor = "grabbing";
   });
 
   window.addEventListener("mouseup", () => {
     isPressDown = false;
-    slider.style.cursor = "grab"; 
+    slider.style.cursor = "grab";
   });
 
   slider.addEventListener("mousemove", (e) => {
@@ -309,7 +276,7 @@ document.addEventListener("DOMContentLoaded", () => {
     newLeft = Math.max(newLeft, minLeft);
     newLeft = Math.min(newLeft, 0);
 
-    sliderInner.style.transition = "none"; 
+    sliderInner.style.transition = "none";
     sliderInner.style.transform = `translateX(${Math.max(
       newLeft,
       maxTranslateX
@@ -333,6 +300,49 @@ document.addEventListener("DOMContentLoaded", () => {
   nextArrow.addEventListener("click", () => {
     if (currentIndex < totalSlides - 1) {
       moveToIndex(currentIndex + 1);
+    }
+  });
+});
+document.addEventListener("DOMContentLoaded", () => {
+  // Get references to the dropdown menu items
+  const productsMenu = document.getElementById("productsMenu");
+  const contactUsMenu = document.getElementById("contactUsMenu");
+  const conceptSpaceMenu = document.getElementById("conceptSpaceMenu");
+
+  // Get references to the dropdown content elements
+  const dropDown1 = document.getElementById("dropDown1");
+  const dropDown2 = document.getElementById("dropDown2");
+  const dropDown3 = document.getElementById("dropDown3");
+
+  // Function to toggle the dropdown visibility
+  const toggleDropdown = (dropdown) => {
+    const isOpen = dropdown.style.display === "block";
+    closeAllDropdowns();
+    if (!isOpen) {
+      dropdown.style.display = "block";
+      setTimeout(() => {
+        dropdown.style.opacity = "1";
+        dropdown.style.transform = "translateZ(0)";
+      }, 0);
+    }
+  };
+
+  // Function to close all dropdowns
+  const closeAllDropdowns = () => {
+    [dropDown1, dropDown2, dropDown3].forEach((dropdown) => {
+      dropdown.style.transform = "translateZ(-100%)";
+    });
+  };
+
+  // Add event listeners to the menu items
+  productsMenu.addEventListener("click", () => toggleDropdown(dropDown1));
+  contactUsMenu.addEventListener("click", () => toggleDropdown(dropDown2));
+  conceptSpaceMenu.addEventListener("click", () => toggleDropdown(dropDown3));
+
+  // Close dropdowns when clicking outside
+  document.addEventListener("click", (event) => {
+    if (!event.target.closest(".dropdown-menu")) {
+      closeAllDropdowns();
     }
   });
 });

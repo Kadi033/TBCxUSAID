@@ -768,7 +768,6 @@ svg:not(:root) {
   overflow: hidden;
   cursor: grab; /* Default cursor */
   margin-top: 40px;
-  
 }
 .slider2 {
   position: relative;
@@ -780,7 +779,6 @@ svg:not(:root) {
   overflow: hidden;
   cursor: grab; /* Default cursor */
   margin-top: 40px;
-  
 }
 .slider-inner {
   display: flex; /* Use flex to align items horizontally */
@@ -829,7 +827,7 @@ svg:not(:root) {
 }
 .slide-img:hover {
   border-color: #eef1f1;
-  box-shadow: 0 36px 40px -15px rgba(12, 43, 67, .07);
+  box-shadow: 0 36px 40px -15px rgba(12, 43, 67, 0.07);
 }
 .slide-img2 {
   position: relative;
@@ -845,9 +843,10 @@ svg:not(:root) {
   transition: box-shadow 0.4s ease-in-out, background-color 0.4s ease-in-out;
   display: flex;
 }
+
 .slide-img2:hover {
   border-color: #eef1f1;
-  box-shadow: 0 36px 40px -15px rgba(12, 43, 67, .07);
+  box-shadow: 0 36px 40px -15px rgba(12, 43, 67, 0.07);
 }
 .slider-relative-img,
 .slider-relative-img2,
@@ -868,13 +867,13 @@ svg:not(:root) {
   background-size: cover;
   width: 100%; /* Ensure it fills the container width */
   height: 213px;
-  transition: all .25s ease-in-out;
+  transition: all 0.25s ease-in-out;
   user-select: none; /* Prevent text selection */
 }
 .bg-img6,
 .bg-img7,
 .bg-img8,
-.bg-img9{
+.bg-img9 {
   background-repeat: no-repeat;
   background-size: cover;
   width: 118px; /* Ensure it fills the container width */
@@ -971,6 +970,7 @@ svg:not(:root) {
 }
 .packpage-content {
   background-color: #f9fafa;
+  padding-bottom: 40px;
 }
 .infos-color {
   background-color: #f9fafa;
@@ -1346,6 +1346,9 @@ footer {
 .dropdown-menu2 {
   cursor: pointer;
 }
+.last-dance > p {
+  padding: 10px 0;
+}
 @media (max-width: 1440px) {
   .third-slider {
     overflow: hidden; /* Hide overflow to contain the children */
@@ -1451,10 +1454,18 @@ footer {
   .packpage-top-text {
     padding: 87px 0 87px 20px;
   }
-  
 }
 
 @media only screen and (max-width: 767px) {
+  .slider-mover {
+    display: none;
+  }
+  .mix-kd {
+    display: none;
+  }
+  .slider {
+    display: none;
+  }
   .main-content {
     padding: 0;
   }
@@ -1466,7 +1477,7 @@ footer {
     padding: 30px 0 30px 0;
     cursor: pointer;
   }
-  
+
   .drop-down-footer2 {
     display: flex;
     grid-row-gap: 32px;
@@ -1732,16 +1743,18 @@ footer {
   .packpage-top-text {
     padding: 20px;
   }
-  
+  .slider2 {
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 1070px) {
   .slide-img {
     min-width: 329px;
-}
-.slide-img2 {
-  min-width: 329px;
-}
+  }
+  .slide-img2 {
+    min-width: 329px;
+  }
 }
 @media only screen and (min-width: 1095px) {
   .main-content-image > img {
@@ -1776,10 +1789,10 @@ footer {
 @media only screen and (max-width: 991px) {
   .slide-img {
     min-width: 314px;
-}
-.slide-img2 {
-  min-width: 314px;
-}
+  }
+  .slide-img2 {
+    min-width: 314px;
+  }
   .firsvg {
     display: none;
   }
@@ -1823,6 +1836,7 @@ footer {
   }
   .second-container {
     justify-content: flex-start;
+    padding-bottom: 50px;
   }
   .infos {
     flex-direction: column;
@@ -2089,38 +2103,80 @@ footer {
     padding: 20px;
   }
 }
+@media (max-width: 450px) {
+  .width-100-class {
+    padding-left: 15px;
+  }
+  .width-100-contact {
+    padding-left: 15px;
+  }
+  .header-all-side {
+    padding: 10px 20px;
+    gap: 0;
+  }
+}
 @media (max-width: 400px) {
+  .packpage-content {
+    padding-bottom: 0;
+  }
+  .arrow-icon {
+    display: none;
+  }
+  .header-all-side {
+    padding: 10px 42px;
+    gap: 0;
+  }
+  .header-right-side > .header-button {
+    display: flex;
+    align-items: center;
+    margin-left: 8px;
+    cursor: pointer;
+    transition: color 0.25s;
+  }
+  .header-all-side {
+    padding: 10px 15px;
+  }
+  .header-right-side {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
   .main-text {
     left: 45%;
-}
+  }
   .slide-img2 {
     height: 290px;
-}
+  }
+
   .slider2 {
     height: 320px;
-}
+  }
   .photo-text-header {
     padding-top: 50px;
-}
-.photo-text-header > h1 {
-  font-size: 14px;
-}
-.infos {
-  padding-top: 30px;
-}
+  }
+  .photo-text-header > h1 {
+    font-size: 14px;
+  }
+  .infos {
+    padding-top: 30px;
+  }
   .main-content-image-inside-text {
     top: 60%;
-}
+  }
   .get-app-mobile > img {
-    width: 460x;
-    height: 360px;
     object-fit: contain;
   }
   .slide-img {
-    min-width: 213px;
+    min-width: 292px;
+  }
+  .slide-img {
+    margin-right: 0;
   }
   .slide-img2 {
-    min-width: 213px;
+    min-width: 292px;
+  }
+  .grid-2-col {
+    gap: 0px;
   }
 }
 @media only screen and (max-width: 329px) {
