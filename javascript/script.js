@@ -304,17 +304,15 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 document.addEventListener("DOMContentLoaded", () => {
-  // Get references to the dropdown menu items
   const productsMenu = document.getElementById("productsMenu");
   const contactUsMenu = document.getElementById("contactUsMenu");
   const conceptSpaceMenu = document.getElementById("conceptSpaceMenu");
 
-  // Get references to the dropdown content elements
   const dropDown1 = document.getElementById("dropDown1");
   const dropDown2 = document.getElementById("dropDown2");
   const dropDown3 = document.getElementById("dropDown3");
 
-  // Function to toggle the dropdown visibility
+
   const toggleDropdown = (dropdown) => {
     const isOpen = dropdown.style.display === "block";
     closeAllDropdowns();
@@ -327,19 +325,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  // Function to close all dropdowns
   const closeAllDropdowns = () => {
     [dropDown1, dropDown2, dropDown3].forEach((dropdown) => {
       dropdown.style.transform = "translateZ(-100%)";
     });
   };
 
-  // Add event listeners to the menu items
   productsMenu.addEventListener("click", () => toggleDropdown(dropDown1));
   contactUsMenu.addEventListener("click", () => toggleDropdown(dropDown2));
   conceptSpaceMenu.addEventListener("click", () => toggleDropdown(dropDown3));
 
-  // Close dropdowns when clicking outside
   document.addEventListener("click", (event) => {
     if (!event.target.closest(".dropdown-menu")) {
       closeAllDropdowns();
