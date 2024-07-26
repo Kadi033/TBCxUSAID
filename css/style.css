@@ -730,15 +730,56 @@ svg:not(:root) {
   display: flex;
   gap: 12px;
 }
+.main-content-slider {
+  width: 100%;
+  height: 100%;
+  background-color: #f9fafa;
+  padding-bottom: 40px;
+}
+.main-content-slider2 {
+  width: 100%;
+  height: 100%;
+  background-color: #f9fafa;
+  padding-bottom: 40px;
+}
+.slider-header-top {
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.slider-header-top > h1 {
+  padding-left: 20px;
+}
+.slider-header-top2 {
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.slider-header-top2 > h1 {
+  padding-left: 20px;
+}
 .slider {
   position: relative;
   width: 100%; /* Adjust as needed */
   height: 420px;
-  max-width: 1040px;
+  max-width: 1080px;
   margin: 0 auto;
   height: 400px; /* Define a height for the slider */
   overflow: hidden;
   cursor: grab; /* Default cursor */
+  margin-top: 40px;
+  
+}
+.slider2 {
+  position: relative;
+  width: 100%; /* Adjust as needed */
+  height: 420px;
+  max-width: 1080px;
+  margin: 0 auto;
+  height: 250px; /* Define a height for the slider */
+  overflow: hidden;
+  cursor: grab; /* Default cursor */
+  margin-top: 40px;
   
 }
 .slider-inner {
@@ -753,7 +794,18 @@ svg:not(:root) {
   transition: transform 0.5s ease;
   margin: 0 20px 0 20px;
 }
-
+.slider-inner2 {
+  display: flex; /* Use flex to align items horizontally */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 348px;
+  height: 213px; /* Width of the container */ /* Full height of the slider */
+  transition: left 0.3s ease; /* Smooth transition for sliding */
+  transition: transform 0.5s ease;
+  margin: 0 20px 0 20px;
+}
 .slide-img {
   position: relative;
   min-width: 348px; /* Width of each slide */
@@ -761,7 +813,6 @@ svg:not(:root) {
   margin-right: 30px; /* Space between slides */
   border-radius: 1rem;
   overflow: hidden;
-  border: 1px solid #e1e4e5;
   border-radius: 8px;
   flex-direction: column;
   font-size: 14px;
@@ -769,7 +820,35 @@ svg:not(:root) {
   transition: box-shadow 0.4s ease-in-out, background-color 0.4s ease-in-out;
   display: flex;
 }
-
+.slide-img:hover .bg-img,
+.slide-img:hover .bg-img2,
+.slide-img:hover .bg-img3,
+.slide-img:hover .bg-img4,
+.slide-img:hover .bg-img5 {
+  transform: translateY(-5px);
+}
+.slide-img:hover {
+  border-color: #eef1f1;
+  box-shadow: 0 36px 40px -15px rgba(12, 43, 67, .07);
+}
+.slide-img2 {
+  position: relative;
+  min-width: 420px; /* Width of each slide */
+  height: 239px;
+  margin-right: 30px; /* Space between slides */
+  border-radius: 1rem;
+  overflow: hidden;
+  border-radius: 8px;
+  flex-direction: column;
+  font-size: 14px;
+  text-decoration: none;
+  transition: box-shadow 0.4s ease-in-out, background-color 0.4s ease-in-out;
+  display: flex;
+}
+.slide-img2:hover {
+  border-color: #eef1f1;
+  box-shadow: 0 36px 40px -15px rgba(12, 43, 67, .07);
+}
 .slider-relative-img,
 .slider-relative-img2,
 .slider-relative-img3,
@@ -777,6 +856,7 @@ svg:not(:root) {
 .slider-relative-img5 {
   position: relative;
   width: 100%; /* Ensure it fills the container width */
+  background-color: white;
 }
 
 .bg-img,
@@ -787,8 +867,20 @@ svg:not(:root) {
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%; /* Ensure it fills the container width */
-  height: 213px; /* Set height */
+  height: 213px;
+  transition: all .25s ease-in-out;
   user-select: none; /* Prevent text selection */
+}
+.bg-img6,
+.bg-img7,
+.bg-img8,
+.bg-img9{
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 118px; /* Ensure it fills the container width */
+  height: 52px; /* Set height */
+  user-select: none; /* Prevent text selection */
+  margin: 20px;
 }
 
 .min-bg-img,
@@ -817,7 +909,11 @@ svg:not(:root) {
   height: auto;
   pointer-events: none;
 }
-
+.slide-img2 > img {
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+}
 .progress-container {
   width: 100%;
   position: relative;
@@ -843,7 +939,7 @@ svg:not(:root) {
 }
 
 .swiper_nav-arrow {
-  background: #ffffff; /* Background for the arrow buttons */
+  background: #f9fafa; /* Background for the arrow buttons */
   border-radius: 50%; /* Round buttons */
   padding: 10px; /* Space around the SVG */
   cursor: pointer; /* Pointer cursor for interactivity */
@@ -860,6 +956,13 @@ svg:not(:root) {
   fill: #333333; /* Arrow color */
 }
 .progress-bar {
+  width: 0%;
+  height: 100%;
+  background-color: #182cc0; /* Color of the progress bar */
+  /* Initial width of the progress bar */
+  transition: width 0.3s ease;
+}
+.progress-bar2 {
   width: 0%;
   height: 100%;
   background-color: #182cc0; /* Color of the progress bar */
@@ -1270,7 +1373,7 @@ footer {
   }
 
   .third-slider-box {
-    max-width: 300px; /* Adjust size to fit within the screen */
+    max-width: 328px; /* Adjust size to fit within the screen */
   }
 }
 
@@ -1348,9 +1451,13 @@ footer {
   .packpage-top-text {
     padding: 87px 0 87px 20px;
   }
+  
 }
 
 @media only screen and (max-width: 767px) {
+  .main-content {
+    padding: 0;
+  }
   .dropdown-menu2 {
     display: flex;
     align-items: center;
@@ -1359,6 +1466,7 @@ footer {
     padding: 30px 0 30px 0;
     cursor: pointer;
   }
+  
   .drop-down-footer2 {
     display: flex;
     grid-row-gap: 32px;
@@ -1558,7 +1666,7 @@ footer {
     font-size: 20px;
   }
   .top-text {
-    padding: 45px 24px 0 5px;
+    padding: 45px 24px 0 20px;
   }
   .top-text > p {
     font-size: 12px;
@@ -1624,8 +1732,17 @@ footer {
   .packpage-top-text {
     padding: 20px;
   }
+  
 }
 
+@media only screen and (max-width: 1070px) {
+  .slide-img {
+    min-width: 329px;
+}
+.slide-img2 {
+  min-width: 329px;
+}
+}
 @media only screen and (min-width: 1095px) {
   .main-content-image > img {
     height: 360px;
@@ -1657,6 +1774,12 @@ footer {
   }
 }
 @media only screen and (max-width: 991px) {
+  .slide-img {
+    min-width: 314px;
+}
+.slide-img2 {
+  min-width: 314px;
+}
   .firsvg {
     display: none;
   }
@@ -1967,12 +2090,36 @@ footer {
   }
 }
 @media (max-width: 400px) {
+  .main-text {
+    left: 45%;
+}
+  .slide-img2 {
+    height: 290px;
+}
+  .slider2 {
+    height: 320px;
+}
+  .photo-text-header {
+    padding-top: 50px;
+}
+.photo-text-header > h1 {
+  font-size: 14px;
+}
+.infos {
+  padding-top: 30px;
+}
+  .main-content-image-inside-text {
+    top: 60%;
+}
   .get-app-mobile > img {
     width: 460x;
     height: 360px;
     object-fit: contain;
   }
   .slide-img {
+    min-width: 213px;
+  }
+  .slide-img2 {
     min-width: 213px;
   }
 }
