@@ -4,6 +4,39 @@
   box-sizing: border-box;
   font-family: sans-serif;
 }
+.cookie-box {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 700px;
+  height: 80px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  text-align: center;
+  border-radius: 6px;
+  background: #fff;
+  transition: opacity 0.75s cubic-bezier(0.19, 1, 0.22, 1);
+  opacity: 1;
+  padding: 24px 32px;
+  box-shadow: 0 36px 40px -15px rgba(12, 43, 67, 0.07);
+}
+
+.cookie-box.cookie-box--hide {
+  opacity: 0;
+}
+
+.cookie-button {
+  display: inline-block;
+  cursor: pointer;
+  padding: 5px 5px;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+}
+
 h1 {
   user-select: none;
 }
@@ -499,6 +532,68 @@ svg:not(:root) {
 .button:hover {
   background: transparent;
 }
+
+/* CSS for the button menu */
+.button-menu {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  z-index: 12312312;
+}
+
+.buttons {
+  display: none; /* Initially hidden */
+  gap: 20px;
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: translateZ(0);
+  transition: opacity 0.25s ease-in-out, transform 0.25s ease-in-out;
+}
+.buttons > * { /* Target all child elements of .buttons */
+  opacity: 0;
+  transform: translateZ(0);
+  transition: opacity 0.25s ease-in-out, transform 0.25s ease-in-out;
+}
+.button-menu_button2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  padding: 16px;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: #333333;
+}
+
+.button-menu_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  padding: 16px;
+  background-color: #f0f0f0;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.button-menu_tooltip {
+  display: none;
+}
+
+
+.button-menu_button:hover .button-menu_tooltip {
+  display: block;
+  transition: opacity 0.25s ease-in-out;
+}
+.button-menu_button2 svg:nth-child(2) {
+  display: none;
+}
+
 
 .packpage-top-text {
   width: 100%;
@@ -2102,15 +2197,26 @@ footer {
   }
 }
 @media (max-width: 450px) {
-  .width-100-class {
-    padding-left: 15px;
+  .footer-flex-box {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 50px 0 20px;
   }
+  .width-100-class {
+    padding: 0 65px 32.5px 42px;
+}
   .width-100-contact {
-    padding-left: 15px;
+    padding-left: 25px;
   }
   .header-all-side {
     padding: 10px 20px;
     gap: 0;
+  }
+  .width-200-class {
+    padding: 20px 62px 22.5px 20px;
+  }
+  .width-200-contact {
+    padding: 32px 25px 0 20px;
   }
 }
 @media (max-width: 400px) {
@@ -2132,7 +2238,7 @@ footer {
     transition: color 0.25s;
   }
   .header-all-side {
-    padding: 10px 15px;
+    padding: 10px 45px;
   }
   .header-right-side {
     display: flex;

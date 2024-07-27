@@ -1,3 +1,4 @@
+// toggle menu
 document.addEventListener("DOMContentLoaded", () => {
   const toggleMenu = document.querySelector(".toggle-menu");
   const menuDrawer = document.querySelector(".menu-drawer");
@@ -27,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
-
+  // mobile dropdown menu
   const dropdownMenus = document.querySelectorAll(".dropdown-menu");
   const dropDowns = document.querySelectorAll(".drop-down");
 
@@ -53,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
-
+  // pc header dropdown menu
   document.querySelectorAll(".dropdown-menu2").forEach((menu) => {
     menu.addEventListener("click", function () {
       const targetId = this.getAttribute("data-target");
@@ -156,6 +157,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+// first slider
 document.addEventListener("DOMContentLoaded", () => {
   const slider = document.querySelector(".slider");
   const sliderInner = document.querySelector(".slider-inner");
@@ -230,6 +233,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+// second slider
 document.addEventListener("DOMContentLoaded", () => {
   const slider = document.querySelector(".slider2");
   const sliderInner = document.querySelector(".slider-inner2");
@@ -303,6 +307,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+// footer dropdown menu
 document.addEventListener("DOMContentLoaded", () => {
   const productsMenu = document.getElementById("productsMenu");
   const contactUsMenu = document.getElementById("contactUsMenu");
@@ -311,7 +317,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const dropDown1 = document.getElementById("dropDown1");
   const dropDown2 = document.getElementById("dropDown2");
   const dropDown3 = document.getElementById("dropDown3");
-
 
   const toggleDropdown = (dropdown) => {
     const isOpen = dropdown.style.display === "block";
@@ -340,4 +345,50 @@ document.addEventListener("DOMContentLoaded", () => {
       closeAllDropdowns();
     }
   });
+});
+
+// cookie box
+const cookieBox = document.getElementById("js-cookie-box");
+const cookieButton = document.getElementById("js-cookie-button");
+
+if (!Cookies.get("cookie-box")) {
+  cookieBox.classList.remove("cookie-box--hide");
+}
+
+cookieButton.onclick = function () {
+  Cookies.set("cookie-box", true, { expires: 7 });
+  cookieBox.classList.add("cookie-box--hide");
+};
+
+// trigger menu
+document.getElementById("toggleButton").addEventListener("click", () => {
+  const menu = document.querySelector(".buttons");
+  const toggleButtonIcons = document.querySelectorAll("#toggleButton svg");
+  const menuChildren = menu.children;
+
+  if (menu.style.display === "none" || menu.style.display === "") {
+    menu.style.display = "grid";
+    setTimeout(() => {
+      menu.style.opacity = "1";
+      menu.style.transform = "translateZ(100px)";
+      Array.from(menuChildren).forEach((child) => {
+        child.style.opacity = "1";
+        child.style.transform = "translateZ(100px)";
+      });
+    }, 0);
+    toggleButtonIcons[0].style.display = "none";
+    toggleButtonIcons[1].style.display = "block";
+  } else {
+    menu.style.opacity = "0";
+    menu.style.transform = "translateZ(0)";
+    Array.from(menuChildren).forEach((child) => {
+      child.style.opacity = "0";
+      child.style.transform = "translateZ(0)";
+    });
+    setTimeout(() => {
+      menu.style.display = "none";
+    }, 250);
+    toggleButtonIcons[0].style.display = "block";
+    toggleButtonIcons[1].style.display = "none";
+  }
 });
