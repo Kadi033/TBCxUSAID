@@ -6,12 +6,24 @@ Project Title: TBC Concept
 Description:
 My Awesome Web Project is a simple, static website designed to demonstrate modern web development practices using HTML, CSS, and JavaScript. This project showcases a responsive design, interactive elements, and clean code structure.
 
-Installation for cookies:
-https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js
+Getting Started:
+    To get a local copy up and running, follow these simple steps:
 
+    Prerequisites
+    You don't need any special software or tools to run this project, just a web browser.
 
-Clone the repository:
-git clone https://github.com/Kadi033/TBCxUSAID.git
+    Installation
+    Clone the repository
+
+    Copy code
+    git clone https://github.com/Kadi033/TBCxUSAID.git
+    Navigate to the project folder
+
+    Copy code
+    cd TBCxUSAID
+    
+    Open index.html in your browser
+    Simply double-click the index.html file or open it with your preferred web browser.
 
 Usage:
     To use My Awesome Web Project, just open index.html in your browser and explore the site. Here are some features you can check out:
@@ -28,10 +40,12 @@ Usage:
     Trigger Menu: A button that toggles the visibility of a menu with smooth transitions and icon changes.
     Modern CSS Techniques: Flexbox, Grid, and custom properties are used for layout and styling.
 
-Problems:
+Installation for cookies:
+    https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js
 
+
+Problems:
     I could not make the progress bar of the touch slider of the phone version, in general I could not make such a progress bar as it was in the task.
 
 Finally: 
-
     what is given in the task, everything is done by hand, without libraries, support tools, just a site built with my own logic, in which I used html, css and javascript.
